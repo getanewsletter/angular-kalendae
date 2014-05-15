@@ -24,7 +24,9 @@ module.directive('kalendae', ['$parse', 'kal', 'KalendaeAPI', function($parse, k
                 useYearNav : attrs.useYearNav  || true,
                 direction  : attrs.direction   || 'any',
                 closeButton: attrs.closeButton || false,
-                blackout   : blackout          || false
+                blackout   : blackout          || false,
+                weekStart  : attrs.weekStart   || 1,
+                dayAttributeFormat: attrs.dayAttributeFormat || 'YYYY-MM-DD'
             });
 
             KalendaeAPI.setDatePicker(datePicker);
