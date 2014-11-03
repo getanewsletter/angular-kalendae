@@ -26,7 +26,8 @@ module.directive('kalendae', ['$parse', 'kal', 'KalendaeAPI', function($parse, k
                 closeButton: attrs.closeButton || false,
                 blackout   : blackout          || false,
                 weekStart  : attrs.weekStart   || 1,
-                dayAttributeFormat: attrs.dayAttributeFormat || 'YYYY-MM-DD'
+                dayAttributeFormat: attrs.dayAttributeFormat || 'YYYY-MM-DD',
+                format: attrs.dayAttributeFormat || 'YYYY-MM-DD'
             });
 
             KalendaeAPI.setDatePicker(datePicker);
@@ -77,12 +78,12 @@ module.factory('KalendaeAPI', ['Moment', function(Moment) {
             this.values = values;
         },
         setDate: function(date) {
-            return Moment(date).format('MM/DD/YYYY');
+            return Moment(date).format('YYYY-MM-DD');
         },
         setDates: function(date) {
             this.dates = [];
             for(var key in dates) {
-                var date = Moment(dates[key]).format('MM/DD/YYYY');
+                var date = Moment(dates[key]).format('YYYY-MM-DD');
 
                 this.dates.push(date);
             }
